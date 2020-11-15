@@ -19,7 +19,11 @@ namespace dbup_dotnet_core
         [Option(template: "-dt | --database-type", description: "Database Type: Sql Server, MySQL...", CommandOptionType.SingleValue)]
         public (bool HasValue, DatabaseType value) DatabaseType { get; }
 
-        public async Task<int> OnExecuteAsync(CommandLineApplication app, CancellationToken cancellationToken = default)
+        public async Task<int> OnExecuteAsync
+        (
+            CommandLineApplication app, 
+            CancellationToken cancellationToken = default
+        )
         {
             if (!this.DatabaseType.HasValue)
             {
